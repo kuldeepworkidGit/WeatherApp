@@ -15,7 +15,7 @@ function WAInput(props: WAInputProps): React.JSX.Element {
   return (
     <View style={[styles.container, theme === 'dark' && styles.darkBG]}>
       <TextInput
-        style={[styles.input, theme === 'dark' && styles.darkB]}
+        style={[styles.input, theme === 'dark' ? styles.darkB : styles.darkL]}
         placeholder="Search"
         onChangeText={onChangeText}
         placeholderTextColor={theme === 'dark' ? themeLight.white : 'black'}
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
 
   darkBG: {backgroundColor: '#404040'},
   darkB: {color: themeLight.white},
+  darkL: {color: '#000'},
 });
 
 export default WAInput;
