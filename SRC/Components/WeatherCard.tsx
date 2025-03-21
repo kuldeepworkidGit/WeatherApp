@@ -15,6 +15,7 @@ function WeatherCard(props: WeatherCardProps): React.JSX.Element {
   const {theme} = useTheme();
   return (
     <View
+      testID="weather-card"
       style={[
         styles.headerContainer,
         theme === 'dark' ? styles.darkBG : styles.lightBG,
@@ -27,7 +28,11 @@ function WeatherCard(props: WeatherCardProps): React.JSX.Element {
         <WAText style={styles.titleText} value={location} />
       </View>
       <View style={styles.imgContainer}>
-        <Image source={{uri: `https:${icon}`}} style={styles.img} />
+        <Image
+          testID="weather-icon"
+          source={{uri: `https:${icon}`}}
+          style={styles.img}
+        />
         <WAText style={styles.conditionText} value={condition} />
       </View>
     </View>

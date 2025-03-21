@@ -3,7 +3,7 @@ import {ActivityIndicator} from 'react-native';
 import {themeLight} from '../Utils/Color';
 
 function Loader(): React.JSX.Element {
-  return <ActivityIndicator color={themeLight.themeColor} />;
+  return <ActivityIndicator testID="loader" color={themeLight.themeColor} />;
 }
 
 export default Loader;

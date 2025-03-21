@@ -82,6 +82,15 @@ You've successfully run and modified your React Native App. :partying_face:
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
 - If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
 
+# Why TypeScript?
+
+This project uses **TypeScript** instead of plain JavaScript to ensure **type safety, better code maintainability, and improved developer experience**. TypeScript helps catch errors at compile time, enhances IntelliSense support, and makes the codebase more scalable. Key benefits include:
+
+- **Static Typing**: Prevents runtime errors by detecting type mismatches during development.
+- **Better Code Readability**: Helps developers understand data structures and function signatures easily.
+- **Improved Developer Experience**: Provides enhanced autocompletion and documentation support in editors like VS Code.
+- **Scalability**: Helps maintain a clean and well-structured codebase as the project grows.
+
 # Troubleshooting
 
 If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
@@ -95,3 +104,18 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+# Project Architecture
+
+This project follows a **modular and scalable architecture** for better maintainability and separation of concerns. The key layers and their responsibilities are:
+
+- **Components (`/Components`)**: Reusable UI elements such as `WAButton`, `WeatherCard`, and `Loader`.
+- **Screens (`/Screens`)**: Page-level views like `HomeScreen.tsx` that manage layout and screen interactions.
+- **Services (`/Utils/Services.ts`)**: Handles API requests (e.g., `getWeather()`).
+- **Helpers (`/Utils/Helpers.ts`)**: Contains utility functions such as `checkWeatherNearMe()`.
+- **State Management (`/Theme`)**: Uses **React Context API** for theme management (`ThemeContext.tsx`).
+- **Async Storage (`@react-native-async-storage/async-storage`)**: Used to persist user preferences (e.g., last searched weather data).
+
+This structure ensures a **clean, maintainable, and scalable** codebase, making it easier to add new features in the future.
+
+# architectural decisions.

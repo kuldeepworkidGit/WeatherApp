@@ -42,7 +42,6 @@ const HomeScreen: React.FC = () => {
       const res = await AsyncStorage.getItem('data');
       return res ? (JSON.parse(res) as WeatherApiResponse) : null;
     } catch (error) {
-      console.error('Error reading AsyncStorage:', error);
       return null;
     }
   };
@@ -99,7 +98,7 @@ const HomeScreen: React.FC = () => {
       </ScrollView>
       <View style={styles.subContainer}>
         <WAText value={theme} style={styles.themeText} />
-        <Switch value={theme === 'dark'} onValueChange={toggleTheme} />
+        <Switch testID="switch-theme" value={theme === 'dark'} onValueChange={toggleTheme} />
       </View>
       <WAInput
         onChangeText={setLocation}

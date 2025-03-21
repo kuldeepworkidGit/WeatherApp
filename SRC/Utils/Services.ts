@@ -27,7 +27,6 @@ const handleGetApi = async (url: string, payload: any) => {
 
     return await res.json();
   } catch (error) {
-    console.error('API fetch error:', error);
     return null;
   }
 };
