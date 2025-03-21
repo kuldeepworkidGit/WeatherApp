@@ -1,12 +1,13 @@
 import React from 'react';
-import {View, StyleSheet, Image, ImageSourcePropType} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 import WAText from './WAText';
 import {useTheme} from '../Theme/ThemeContext';
+import {themeLight} from '../Utils/Color';
 
 interface WeatherCardProps {
   temperature: number;
   location: string;
-  icon: ImageSourcePropType;
+  icon: string;
   condition: string;
 }
 function WeatherCard(props: WeatherCardProps): React.JSX.Element {
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
   imgContainer: {alignItems: 'center'},
   img: {height: 60, width: 60, resizeMode: 'contain'},
   conditionText: {fontSize: 12, marginTop: -5},
-  lightBG: {backgroundColor: 'white'},
+  lightBG: {backgroundColor: themeLight.white},
   darkBG: {backgroundColor: '#404040'},
 });
 

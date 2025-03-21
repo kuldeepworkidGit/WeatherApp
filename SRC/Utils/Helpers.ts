@@ -1,15 +1,23 @@
 import Geolocation from '@react-native-community/geolocation';
 import {getWeather} from './Services';
 
-export const checkWeatherNearMe = async () => {
+// Define expected weather response type
+interface WeatherApiResponse {
+  error?: {message: string};
+  temp?: number;
+  location?: string;
+  icon?: string;
+  condition?: string;
+}
+
+export const checkWeatherNearMe = async (): Promise<WeatherApiResponse> => {
   return new Promise((resolve, reject) => {
     Geolocation.getCurrentPosition(
       async info => {
         try {
           console.log(info);
           const location = `${info.coords.latitude},${info.coords.longitude}`;
-          const res = await getWeather(location);
-
+          const res: WeatherApiResponse = await getWeather(location);
           resolve(res);
         } catch (error) {
           reject(error);
@@ -18,6 +26,7 @@ export const checkWeatherNearMe = async () => {
       error => {
         reject(error);
       },
+      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
   });
 };

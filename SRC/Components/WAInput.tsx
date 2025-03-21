@@ -18,7 +18,7 @@ function WAInput(props: WAInputProps): React.JSX.Element {
         style={[styles.input, theme === 'dark' && styles.darkB]}
         placeholder="Search"
         onChangeText={onChangeText}
-        placeholderTextColor={theme === 'dark' ? 'white' : 'black'}
+        placeholderTextColor={theme === 'dark' ? themeLight.white : 'black'}
       />
       <WAButton title="Search" onPress={onPress} isLoading={isLoading} />
     </View>
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
-    backgroundColor: 'white',
+    backgroundColor: themeLight.white,
     elevation: 7,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
 
   darkBG: {backgroundColor: '#404040'},
-  darkB: {color: 'white'},
+  darkB: {color: themeLight.white},
 });
 
 export default WAInput;

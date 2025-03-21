@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {DefaultTheme} from '@react-navigation/native';
-import HomeScreen from './SRC/Screens/Homescreen';
+import HomeScreen from './SRC/Screens/HomeScreen/Homescreen';
 import {ThemeProvider, useTheme} from './SRC/Theme/ThemeContext';
+import { themeLight } from './SRC/Utils/Color';
 
 function App(): React.JSX.Element {
   return (
@@ -20,14 +14,7 @@ function App(): React.JSX.Element {
 }
 
 const AppContent = () => {
-  const {theme} = useTheme(); // Get current theme
-  const navTheme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      background: 'transparent',
-    },
-  };
+  const {theme} = useTheme();
 
   const backgroundStyle = {
     backgroundColor: theme === 'dark' ? Colors.darker : Colors.lighter,
@@ -55,7 +42,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   subContainer: {
-    backgroundColor: 'white',
+    backgroundColor: themeLight.white,
   },
   subContainerB: {
     backgroundColor: '#404040',

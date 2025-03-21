@@ -23,7 +23,7 @@ function WAButton(props: WAButtonProps): React.JSX.Element {
       ) : (
         <WAText
           value={title}
-          style={[styles.title, theme === 'dark' && styles.darkText]}
+          style={[styles.title, ...(theme === 'dark' ? [styles.darkText] : [])]}
         />
       )}
     </Pressable>
@@ -32,7 +32,6 @@ function WAButton(props: WAButtonProps): React.JSX.Element {
 
 const styles = StyleSheet.create({
   container: {
-    //backgroundColor: 'white',
     borderWidth: 1,
     borderColor: themeLight.themeColor,
     height: 56,
@@ -45,8 +44,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
   },
-  dark: {borderColor: 'white'},
-  darkText: {color: 'white'},
+  dark: {borderColor: themeLight.white},
+  darkText: {color: themeLight.white},
 });
 
 export default WAButton;
