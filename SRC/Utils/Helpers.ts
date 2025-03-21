@@ -1,7 +1,6 @@
 import Geolocation from '@react-native-community/geolocation';
 import {getWeather} from './Services';
 
-
 interface WeatherApiResponse {
   error?: {message: string};
   temp?: number;
@@ -25,7 +24,6 @@ export const checkWeatherNearMe = async (): Promise<WeatherApiResponse> => {
       error => {
         reject(error);
       },
-      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
   });
 };
